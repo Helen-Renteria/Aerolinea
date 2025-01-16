@@ -1,0 +1,25 @@
+clinica_veterinaria/
+├── controllers/
+│   └── cliente.controller.js
+├── database/
+│   └── conexion_db.js
+├── img/
+│   ├── icono.png
+│   └── pet.png
+├── models/
+│   └── cliente.model.js
+├── node_modules
+├── otros
+├── public/
+│   ├── clientes.html
+│   └── index.html
+├── routes/
+│   ├── clientes.route.js
+│   ├── index.route.js
+│   └── public.route.js
+├── .env
+├── .gitignore
+├── index.js
+├── package-lock.jason
+├── package.jason
+└── script.js
