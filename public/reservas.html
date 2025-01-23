@@ -7,9 +7,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="./img/logo.png" type="image/x-icon">
-    <title>Aerolínea</title>
-    
+    <title>Aerolínea - Reservas</title>
 </head>
+
 <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light shadow">
@@ -42,88 +42,80 @@
         </div>
     </nav>
 
-
     <div class="container mt-4">
-        <h1 class="blockquote text-center">Gestion de Clientes</h1>
+        <h1 class="blockquote text-center">Gestión de Reservas</h1>
         <!-- Formulario para pedir los datos -->
-        <form class="container mt-4" id="formCliente">
+        <form class="container mt-4" id="formReserva">
             <div class="row">
                 <div class="col-md-4 mb-3">
-                        <label for="idcliente" class="form-label">ID</label>
-                        <input type="number" class="form-control " name="idcliente"
-                        min="1" max="99999999" title="Por favor ingrese un ID válido entre 1 y 99,999,999" id="idcliente" required>
-                
+                    <label for="idreserva" class="form-label">ID Reserva</label>
+                    <input type="number" class="form-control" name="idreserva" min="1" max="99999999" title="Por favor ingrese un ID válido entre 1 y 99,999,999" id="idreserva" required>
                 </div>
                 <div class="col-md-4 mb-3">
-                        <label for="nombre"  class="form-label">Nombre</label>
-                        <input type="text" class="form-control" id="nombre" name="nombre" required>
-                    
+                    <label for="idcliente" class="form-label">ID Cliente</label>
+                    <input type="number" class="form-control" id="idcliente" name="idcliente" required>
                 </div>
                 <div class="col-md-4 mb-3">
-                        <label for="apellido" class="form-label" >Apellido</label>
-                        <input type="text" class="form-control " name="apellido" id="apellido"  required>
-                    
-                </div>
-                
-                
-                <div class="col-md-4 mb-3">
-                        <label for="correo" class="form-label">Correo electrónico</label>
-                        <input type="email" class="form-control " name="correo" id="correo" required>
+                    <label for="idvuelo" class="form-label">ID Vuelo</label>
+                    <input type="number" class="form-control" name="idvuelo" id="idvuelo" required>
                 </div>
                 <div class="col-md-4 mb-3">
-                    
-                        <label for="telefono" class="form-label">Telefono</label>
-                        <input type="tel" class="form-control " name="telefono" id="telefono" required>
-            
+                    <label for="fechareserva" class="form-label">Fecha Reserva</label>
+                    <input type="date" class="form-control" name="fechareserva" id="fechareserva" required>
                 </div>
                 <div class="col-md-4 mb-3">
-                        <label for="pasaporte" class="form-label">pasaporte</label>
-                        <input type="text" class="form-control " name="pasaporte" id="pasaporte" required>
-                    
+                    <label for="clase" class="form-label">Clase</label>
+                    <select class="form-control" name="clase" id="clase" required>
+                        <option value="Economica">Economica</option>
+                        <option value="Ejecutiva">Ejecutiva</option>
+                        <option value="Primera">Primera</option>
+                    </select>
                 </div>
                 <div class="col-md-4 mb-3">
-                    
-                        <label for="direccion" class="form-label">direccion</label>
-                        <input type="text" class="form-control " name="direccion" id="direccion" required>
-                    
+                    <label for="precio" class="form-label">Precio</label>
+                    <input type="number" class="form-control" name="precio" id="precio" required>
                 </div>
-                
+                <div class="col-md-4 mb-3">
+                    <label for="estado" class="form-label">Estado</label>
+                    <select class="form-control" name="estado" id="estado" required>
+                        <option value="Confirmada">Confirmada</option>
+                        <option value="Cancelada">Cancelada</option>
+                        <option value="Pendiente">Pendiente</option>
+                    </select>
+                </div>
             </div>
             <div class="d-flex justify-content-between mt-3">
                 <button type="submit" class="btn btn-primary">Registrar</button>
                 <button type="reset" class="btn btn-secondary">Limpiar</button>
-                <button type="button" class="btn btn-info" onclick="loadClientes()">Cargar Clientes</button>
+                <button type="button" class="btn btn-info" onclick="loadReservas()">Cargar Reservas</button>
                 <div class="input-group w-50">
-                    <input type="search" id="searchInput" class="form-control" placeholder="Buscar clientes">
-                    <button type="button" class="btn btn-success" onclick="searchCliente()">Buscar</button>
+                    <input type="text" id="searchInput" class="form-control" placeholder="Buscar reservas">
+                    <button type="button" class="btn btn-success" onclick="searchReserva()">Buscar</button>
                 </div>
             </div>
-        
         </form>
+
         <table class="table table-bordered table-striped table-hover mt-4">
             <thead class="table-dark">
                 <tr>
-                    <th>Id</th>
-                    <th>Nombre</th>
-                    <th>Apellido</th>
-                    <th>Email</th>
-                    <th>Telefono</th>
-                    <th>Pasaporte</th>
-                    <th>Direccion</th>
+                    <th>ID Reserva</th>
+                    <th>ID Cliente</th>
+                    <th>ID Vuelo</th>
+                    <th>Fecha Reserva</th>
+                    <th>Clase</th>
+                    <th>Precio</th>
+                    <th>Estado</th>
                     <th>Acciones</th>
-                
                 </tr>
             </thead>
-            <tbody id="clientesTbBd">
+            <tbody id="reservasTbBd">
             </tbody>
         </table>
     </div>
 
-
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="../clientes.js"></script>
-    
+    <script src="./reservas.js"></script>
 
 </body>
 

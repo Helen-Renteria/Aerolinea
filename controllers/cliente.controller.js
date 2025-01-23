@@ -65,7 +65,7 @@ const deleteCliente = async (req, res) => {
     const userRole = req.role;
 
      // Verificar si el rol del usuario es "superadmin" o "usu1"
-     if (userRole !== 'Superadmin' && userRole !== 'usu2') {
+    if (userRole !== 'superadmin' && userRole !== 'usu2') {
         return res.status(403).json({
             ok: false,
             message: 'No tienes permisos para eliminar clientes'

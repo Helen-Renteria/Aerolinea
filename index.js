@@ -6,6 +6,12 @@ import express from 'express'; // Importar el modulo express
 import clienteRouter from './routes/cliente.route.js';
 import publicRouter from './routes/public.route.js';
 import usersRouter from './routes/users.route.js';
+import empleadosRouter from './routes/empleados.route.js';
+import avionesRouter from './routes/aviones.route.js'; 
+import reservasRouter from './routes/reservas.route.js'; 
+import vuelosRouter from './routes/vuelos.route.js';
+import aeropuertosRouter from './routes/aeropuertos.route.js';
+import rutasRouter from './routes/rutas.route.js';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
@@ -33,6 +39,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', publicRouter);//
 app.use('/api/v1/clientes', clienteRouter);//vista cliente
 app.use('/api/v1/users', usersRouter);//vista Usuario
+app.use('/api/v1/empleados', empleadosRouter); 
+app.use('/api/v1/aviones', avionesRouter); 
+app.use('/api/v1/reservas', reservasRouter); 
+app.use('/api/v1/vuelos', vuelosRouter); 
+app.use('/api/v1/aeropuertos', aeropuertosRouter);  
+app.use('/api/v1/rutas', rutasRouter);  
+
+
 
 
 

@@ -8,8 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="./img/logo.png" type="image/x-icon">
     <title>Aerolínea</title>
-    
 </head>
+
 <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light shadow">
@@ -42,89 +42,76 @@
         </div>
     </nav>
 
-
     <div class="container mt-4">
-        <h1 class="blockquote text-center">Gestion de Clientes</h1>
-        <!-- Formulario para pedir los datos -->
-        <form class="container mt-4" id="formCliente">
+        <h1 class="blockquote text-center">Gestión de Vuelos</h1>
+        <!-- Formulario para ingresar datos de vuelos -->
+        <form class="container mt-4" id="formVuelo">
             <div class="row">
                 <div class="col-md-4 mb-3">
-                        <label for="idcliente" class="form-label">ID</label>
-                        <input type="number" class="form-control " name="idcliente"
-                        min="1" max="99999999" title="Por favor ingrese un ID válido entre 1 y 99,999,999" id="idcliente" required>
-                
+                    <label for="idvuelo" class="form-label">ID Vuelo</label>
+                    <input type="number" class="form-control" name="idvuelo" id="idvuelo" min="1" max="99999999" required>
                 </div>
                 <div class="col-md-4 mb-3">
-                        <label for="nombre"  class="form-label">Nombre</label>
-                        <input type="text" class="form-control" id="nombre" name="nombre" required>
-                    
+                    <label for="numerovuelo" class="form-label">Número de Vuelo</label>
+                    <input type="text" class="form-control" name="numerovuelo" id="numerovuelo" required>
                 </div>
                 <div class="col-md-4 mb-3">
-                        <label for="apellido" class="form-label" >Apellido</label>
-                        <input type="text" class="form-control " name="apellido" id="apellido"  required>
-                    
-                </div>
-                
-                
-                <div class="col-md-4 mb-3">
-                        <label for="correo" class="form-label">Correo electrónico</label>
-                        <input type="email" class="form-control " name="correo" id="correo" required>
+                    <label for="idavion" class="form-label">ID Avión</label>
+                    <input type="number" class="form-control" name="idavion" id="idavion" required>
                 </div>
                 <div class="col-md-4 mb-3">
-                    
-                        <label for="telefono" class="form-label">Telefono</label>
-                        <input type="tel" class="form-control " name="telefono" id="telefono" required>
-            
+                    <label for="origen" class="form-label">Origen</label>
+                    <input type="text" class="form-control" name="origen" id="origen" required>
                 </div>
                 <div class="col-md-4 mb-3">
-                        <label for="pasaporte" class="form-label">pasaporte</label>
-                        <input type="text" class="form-control " name="pasaporte" id="pasaporte" required>
-                    
+                    <label for="destino" class="form-label">Destino</label>
+                    <input type="text" class="form-control" name="destino" id="destino" required>
                 </div>
                 <div class="col-md-4 mb-3">
-                    
-                        <label for="direccion" class="form-label">direccion</label>
-                        <input type="text" class="form-control " name="direccion" id="direccion" required>
-                    
+                    <label for="fechasalida" class="form-label">Fecha de Salida</label>
+                    <input type="datetime-local" class="form-control" name="fechasalida" id="fechasalida" required>
                 </div>
-                
+                <div class="col-md-4 mb-3">
+                    <label for="fechallegada" class="form-label">Fecha de Llegada</label>
+                    <input type="datetime-local" class="form-control" name="fechallegada" id="fechallegada" required>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label for="estado" class="form-label">Estado</label>
+                    <input type="text" class="form-control" name="estado" id="estado" required>
+                </div>
             </div>
             <div class="d-flex justify-content-between mt-3">
-                <button type="submit" class="btn btn-primary">Registrar</button>
+                <button type="submit" class="btn btn-primary">Registrar Vuelo</button>
                 <button type="reset" class="btn btn-secondary">Limpiar</button>
-                <button type="button" class="btn btn-info" onclick="loadClientes()">Cargar Clientes</button>
+                <button type="button" class="btn btn-info" onclick="loadVuelos()">Cargar Vuelos</button>
                 <div class="input-group w-50">
-                    <input type="search" id="searchInput" class="form-control" placeholder="Buscar clientes">
-                    <button type="button" class="btn btn-success" onclick="searchCliente()">Buscar</button>
+                    <input type="text" id="searchInput" class="form-control" placeholder="Buscar vuelos">
+                    <button type="button" class="btn btn-success" onclick="searchVuelo()">Buscar</button>
                 </div>
             </div>
-        
         </form>
         <table class="table table-bordered table-striped table-hover mt-4">
             <thead class="table-dark">
                 <tr>
-                    <th>Id</th>
-                    <th>Nombre</th>
-                    <th>Apellido</th>
-                    <th>Email</th>
-                    <th>Telefono</th>
-                    <th>Pasaporte</th>
-                    <th>Direccion</th>
+                    <th>ID Vuelo</th>
+                    <th>Número Vuelo</th>
+                    <th>ID Avión</th>
+                    <th>Origen</th>
+                    <th>Destino</th>
+                    <th>Fecha Salida</th>
+                    <th>Fecha Llegada</th>
+                    <th>Estado</th>
                     <th>Acciones</th>
-                
                 </tr>
             </thead>
-            <tbody id="clientesTbBd">
+            <tbody id="vuelosTbBd">
             </tbody>
         </table>
     </div>
 
-
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="../clientes.js"></script>
-    
-
+    <script src="../vuelos.js"></script>
 </body>
 
 </html>

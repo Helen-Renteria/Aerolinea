@@ -14,10 +14,10 @@ router.get('/list', ClientController.listCliente);
 router.get('/search', ClientController.searchCliente);
 
 // Ruta para eliminar un cliente
-router.delete('/:id_cliente', verifyToken, verifyAdmin, ClientController.deleteCliente);
+router.delete('/:idcliente', verifyToken, verifyAdmin, ClientController.deleteCliente);
 
 // Ruta protegida para actualizar un cliente (PUT y PATCH)
-router.put('/:id_cliente', verifyToken, verifyAdmin, ClientController.updateClient);
-router.patch('/:id_cliente', verifyToken, verifyAdmin, ClientController.updateClient);
+router.put('/:idcliente', verifyToken, verifyAdmin, ClientController.updateClient);
+router.patch('/:idcliente', verifyToken, verifyAdmin, ClientController.updateClient);
 
 export default router;

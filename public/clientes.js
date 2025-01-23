@@ -5,14 +5,14 @@ resgisterClient.addEventListener('submit', async e => {
     const idcliente = e.target.idcliente.value;
     const nombre = e.target.nombre.value;
     const apellido = e.target.apellido.value;
-    const email = e.target.email.value;
+    const correo = e.target.correo.value;
     const telefono = e.target.telefono.value;
     const pasaporte = e.target.pasaporte.value;
     const direccion = e.target.direccion.value;
 
     try {//api/v1/clientes/register
         const { data } = await axios.post('/api/v1/clientes/register', {
-            idcliente, nombre, apellido, email, telefono, pasaporte, direccion
+            idcliente, nombre, apellido, correo, telefono, pasaporte, direccion
         });
     resgisterClient.reset();
     Swal.fire({
@@ -60,7 +60,7 @@ async function loadClientes() {
                 <td>${cliente.idcliente}</td>
                 <td>${cliente.nombre}</td>
                 <td>${cliente.apellido}</td>
-                <td>${cliente.email}</td>
+                <td>${cliente.correo}</td>
                 <td>${cliente.telefono}</td>
                 <td>${cliente.pasaporte}</td>
                 <td>${cliente.direccion}</td>
@@ -83,12 +83,15 @@ async function loadClientes() {
 }
 async function deleteCliente(idcliente) {
     const token = localStorage.getItem('token');
+    console.log(token);
     try {
         await axios.delete(`/api/v1/clientes/${idcliente}`, {
             headers: {
-                Authorization: `Bearer ${token}` // Enviar el token en los encabezados de la solicitud
+                Authorization: `Bearer ${token}`// Enviar el token en los encabezados de la solicitud
             }
+            
         });
+
         console.log('Cliente eliminado con éxito');
         Swal.fire({
             icon: 'success',
@@ -113,7 +116,7 @@ async function updateCliente(idcliente) {
     const updateFields = {
         nombre: prompt('Nuevo nombre:'),
         apellido: prompt('Nuevo apellido:'),
-        email: prompt('Nuevo correo electrónico:'),
+        correo: prompt('Nuevo correo electrónico:'),
         telefono: prompt('Nuevo teléfono '),
         pasaporte: prompt('Nuevo pasaporte'),
         direccion: prompt('Nueva direccion')
@@ -160,7 +163,7 @@ async function searchCliente() {
                 <td>${cliente.idcliente}</td>
                 <td>${cliente.nombre}</td>
                 <td>${cliente.apellido}</td>
-                <td>${cliente.email}</td>
+                <td>${cliente.correo}</td>
                 <td>${cliente.telefono}</td>
                 <td>${cliente.pasaporte}</td>
                 <td>${cliente.direccion}</td>

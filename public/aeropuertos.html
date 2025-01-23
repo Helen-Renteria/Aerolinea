@@ -44,77 +44,53 @@
 
 
     <div class="container mt-4">
-        <h1 class="blockquote text-center">Gestion de Clientes</h1>
+        <h1 class="blockquote text-center">Gestión de Aeropuertos</h1>
         <!-- Formulario para pedir los datos -->
-        <form class="container mt-4" id="formCliente">
+        <form class="container mt-4" id="formAeropuerto">
             <div class="row">
                 <div class="col-md-4 mb-3">
-                        <label for="idcliente" class="form-label">ID</label>
-                        <input type="number" class="form-control " name="idcliente"
-                        min="1" max="99999999" title="Por favor ingrese un ID válido entre 1 y 99,999,999" id="idcliente" required>
-                
+                        <label for="idaeropuerto" class="form-label">ID Aeropuerto</label>
+                        <input type="number" class="form-control" name="idaeropuerto" min="1" max="99999999" title="Por favor ingrese un ID válido entre 1 y 99,999,999" id="idaeropuerto" required>
                 </div>
                 <div class="col-md-4 mb-3">
-                        <label for="nombre"  class="form-label">Nombre</label>
+                        <label for="nombre" class="form-label">Nombre</label>
                         <input type="text" class="form-control" id="nombre" name="nombre" required>
-                    
                 </div>
                 <div class="col-md-4 mb-3">
-                        <label for="apellido" class="form-label" >Apellido</label>
-                        <input type="text" class="form-control " name="apellido" id="apellido"  required>
-                    
-                </div>
-                
-                
-                <div class="col-md-4 mb-3">
-                        <label for="correo" class="form-label">Correo electrónico</label>
-                        <input type="email" class="form-control " name="correo" id="correo" required>
+                        <label for="ciudad" class="form-label">Ciudad</label>
+                        <input type="text" class="form-control" name="ciudad" id="ciudad" required>
                 </div>
                 <div class="col-md-4 mb-3">
-                    
-                        <label for="telefono" class="form-label">Telefono</label>
-                        <input type="tel" class="form-control " name="telefono" id="telefono" required>
-            
+                        <label for="pais" class="form-label">País</label>
+                        <input type="text" class="form-control" name="pais" id="pais" required>
                 </div>
                 <div class="col-md-4 mb-3">
-                        <label for="pasaporte" class="form-label">pasaporte</label>
-                        <input type="text" class="form-control " name="pasaporte" id="pasaporte" required>
-                    
+                        <label for="codigoiata" class="form-label">Código IATA</label>
+                        <input type="text" class="form-control" name="codigoiata" id="codigoiata" required>
                 </div>
-                <div class="col-md-4 mb-3">
-                    
-                        <label for="direccion" class="form-label">direccion</label>
-                        <input type="text" class="form-control " name="direccion" id="direccion" required>
-                    
-                </div>
-                
             </div>
             <div class="d-flex justify-content-between mt-3">
                 <button type="submit" class="btn btn-primary">Registrar</button>
                 <button type="reset" class="btn btn-secondary">Limpiar</button>
-                <button type="button" class="btn btn-info" onclick="loadClientes()">Cargar Clientes</button>
+                <button type="button" class="btn btn-info" onclick="loadAeropuertos()">Cargar Aeropuertos</button>
                 <div class="input-group w-50">
-                    <input type="search" id="searchInput" class="form-control" placeholder="Buscar clientes">
-                    <button type="button" class="btn btn-success" onclick="searchCliente()">Buscar</button>
+                    <input type="search" id="searchInput" class="form-control" placeholder="Buscar aeropuerto">
+                    <button type="button" class="btn btn-success" onclick="searchAeropuerto()">Buscar</button>
                 </div>
             </div>
-        
         </form>
         <table class="table table-bordered table-striped table-hover mt-4">
             <thead class="table-dark">
                 <tr>
-                    <th>Id</th>
+                    <th>ID Aeropuerto</th>
                     <th>Nombre</th>
-                    <th>Apellido</th>
-                    <th>Email</th>
-                    <th>Telefono</th>
-                    <th>Pasaporte</th>
-                    <th>Direccion</th>
+                    <th>Ciudad</th>
+                    <th>País</th>
+                    <th>Código IATA</th>
                     <th>Acciones</th>
-                
                 </tr>
             </thead>
-            <tbody id="clientesTbBd">
+            <tbody id="aeropuertosTbBd">
             </tbody>
         </table>
     </div>
@@ -122,7 +98,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="../clientes.js"></script>
+    <script src="../aeropuertos.js"></script>
     
 
 </body>

@@ -42,89 +42,71 @@
         </div>
     </nav>
 
-
     <div class="container mt-4">
-        <h1 class="blockquote text-center">Gestion de Clientes</h1>
-        <!-- Formulario para pedir los datos -->
-        <form class="container mt-4" id="formCliente">
+        <h1 class="blockquote text-center">Gestión de Empleados</h1>
+
+        <!-- Formulario para agregar empleados -->
+        <form class="container mt-4" id="formEmpleado">
             <div class="row">
                 <div class="col-md-4 mb-3">
-                        <label for="idcliente" class="form-label">ID</label>
-                        <input type="number" class="form-control " name="idcliente"
-                        min="1" max="99999999" title="Por favor ingrese un ID válido entre 1 y 99,999,999" id="idcliente" required>
-                
+                    <label for="idempleado" class="form-label">ID Empleado</label>
+                    <input type="number" class="form-control" id="idempleado" name="idempleado" min="1" max="99999999"
+                        required>
                 </div>
                 <div class="col-md-4 mb-3">
-                        <label for="nombre"  class="form-label">Nombre</label>
-                        <input type="text" class="form-control" id="nombre" name="nombre" required>
-                    
+                    <label for="nombre" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" id="nombre" name="nombre" required>
                 </div>
                 <div class="col-md-4 mb-3">
-                        <label for="apellido" class="form-label" >Apellido</label>
-                        <input type="text" class="form-control " name="apellido" id="apellido"  required>
-                    
-                </div>
-                
-                
-                <div class="col-md-4 mb-3">
-                        <label for="correo" class="form-label">Correo electrónico</label>
-                        <input type="email" class="form-control " name="correo" id="correo" required>
+                    <label for="apellido" class="form-label">Apellido</label>
+                    <input type="text" class="form-control" id="apellido" name="apellido" required>
                 </div>
                 <div class="col-md-4 mb-3">
-                    
-                        <label for="telefono" class="form-label">Telefono</label>
-                        <input type="tel" class="form-control " name="telefono" id="telefono" required>
-            
+                    <label for="cargo" class="form-label">Cargo</label>
+                    <input type="text" class="form-control" id="cargo" name="cargo" required>
                 </div>
                 <div class="col-md-4 mb-3">
-                        <label for="pasaporte" class="form-label">pasaporte</label>
-                        <input type="text" class="form-control " name="pasaporte" id="pasaporte" required>
-                    
+                    <label for="idvuelo" class="form-label">ID Vuelo</label>
+                    <input type="number" class="form-control" id="idvuelo" name="idvuelo" min="1" max="99999999"
+                        required>
                 </div>
                 <div class="col-md-4 mb-3">
-                    
-                        <label for="direccion" class="form-label">direccion</label>
-                        <input type="text" class="form-control " name="direccion" id="direccion" required>
-                    
+                    <label for="telefono" class="form-label">Teléfono</label>
+                    <input type="tel" class="form-control" id="telefono" name="telefono" required>
                 </div>
-                
             </div>
+
             <div class="d-flex justify-content-between mt-3">
                 <button type="submit" class="btn btn-primary">Registrar</button>
                 <button type="reset" class="btn btn-secondary">Limpiar</button>
-                <button type="button" class="btn btn-info" onclick="loadClientes()">Cargar Clientes</button>
+                <button type="button" class="btn btn-info" onclick="loadEmpleados()">Cargar Empleados</button>
                 <div class="input-group w-50">
-                    <input type="search" id="searchInput" class="form-control" placeholder="Buscar clientes">
-                    <button type="button" class="btn btn-success" onclick="searchCliente()">Buscar</button>
+                    <input type="text" id="searchInput" class="form-control" placeholder="Buscar empleados">
+                    <button type="button" class="btn btn-success" onclick="searchEmpleado()">Buscar</button>
                 </div>
             </div>
-        
         </form>
+
+        <!-- Tabla para mostrar empleados -->
         <table class="table table-bordered table-striped table-hover mt-4">
             <thead class="table-dark">
                 <tr>
-                    <th>Id</th>
+                    <th>ID</th>
                     <th>Nombre</th>
                     <th>Apellido</th>
-                    <th>Email</th>
-                    <th>Telefono</th>
-                    <th>Pasaporte</th>
-                    <th>Direccion</th>
+                    <th>Cargo</th>
+                    <th>ID Vuelo</th>
+                    <th>Teléfono</th>
                     <th>Acciones</th>
-                
                 </tr>
             </thead>
-            <tbody id="clientesTbBd">
-            </tbody>
+            <tbody id="empleadosTbBd"></tbody>
         </table>
     </div>
 
-
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="../clientes.js"></script>
-    
-
+    <script src="../empleados.js"></script>
 </body>
 
 </html>

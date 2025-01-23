@@ -10,8 +10,8 @@ export const verifyToken = (req, res, next) => {
     token = token.split(' ')[1]
 
     try {//payload del token
-        const { email, role } = jwt.verify(token, process.env.JWT_SECRET)
-        req.email = email
+        const { correo, role } = jwt.verify(token, process.env.JWT_SECRET)
+        req.correo = correo
         req.role = role
 
         next()// Continuamos con el siguiente middleware o la ruta
@@ -24,7 +24,7 @@ export const verifyToken = (req, res, next) => {
 }
 
 export const verifyAdmin = (req, res, next) => {
-    if (req.role === 'Superadmin' || req.role === 'usu2') {
+    if (req.role === 'superadmin' || req.role === 'usu2') {
         return next()
     }
     return res.status(403).json({error: 'Only admin login!'})

@@ -42,89 +42,62 @@
         </div>
     </nav>
 
-
     <div class="container mt-4">
-        <h1 class="blockquote text-center">Gestion de Clientes</h1>
-        <!-- Formulario para pedir los datos -->
-        <form class="container mt-4" id="formCliente">
+        <h1 class="blockquote text-center">Gestión de Aviones</h1>
+        <!-- Formulario para registrar aviones -->
+        <form class="container mt-4" id="formAvion">
             <div class="row">
                 <div class="col-md-4 mb-3">
-                        <label for="idcliente" class="form-label">ID</label>
-                        <input type="number" class="form-control " name="idcliente"
-                        min="1" max="99999999" title="Por favor ingrese un ID válido entre 1 y 99,999,999" id="idcliente" required>
-                
+                    <label for="idavion" class="form-label">ID Avión</label>
+                    <input type="number" class="form-control" name="idavion" id="idavion" min="1" max="999999" required>
                 </div>
                 <div class="col-md-4 mb-3">
-                        <label for="nombre"  class="form-label">Nombre</label>
-                        <input type="text" class="form-control" id="nombre" name="nombre" required>
-                    
+                    <label for="matricula" class="form-label">Matrícula</label>
+                    <input type="text" class="form-control" name="matricula" id="matricula" required>
                 </div>
                 <div class="col-md-4 mb-3">
-                        <label for="apellido" class="form-label" >Apellido</label>
-                        <input type="text" class="form-control " name="apellido" id="apellido"  required>
-                    
-                </div>
-                
-                
-                <div class="col-md-4 mb-3">
-                        <label for="correo" class="form-label">Correo electrónico</label>
-                        <input type="email" class="form-control " name="correo" id="correo" required>
+                    <label for="modelo" class="form-label">Modelo</label>
+                    <input type="text" class="form-control" name="modelo" id="modelo" required>
                 </div>
                 <div class="col-md-4 mb-3">
-                    
-                        <label for="telefono" class="form-label">Telefono</label>
-                        <input type="tel" class="form-control " name="telefono" id="telefono" required>
-            
+                    <label for="capacidad" class="form-label">Capacidad</label>
+                    <input type="number" class="form-control" name="capacidad" id="capacidad" min="1" required>
                 </div>
                 <div class="col-md-4 mb-3">
-                        <label for="pasaporte" class="form-label">pasaporte</label>
-                        <input type="text" class="form-control " name="pasaporte" id="pasaporte" required>
-                    
+                    <label for="aerolinea" class="form-label">Aerolínea</label>
+                    <input type="text" class="form-control" name="aerolinea" id="aerolinea" required>
                 </div>
-                <div class="col-md-4 mb-3">
-                    
-                        <label for="direccion" class="form-label">direccion</label>
-                        <input type="text" class="form-control " name="direccion" id="direccion" required>
-                    
-                </div>
-                
             </div>
             <div class="d-flex justify-content-between mt-3">
                 <button type="submit" class="btn btn-primary">Registrar</button>
                 <button type="reset" class="btn btn-secondary">Limpiar</button>
-                <button type="button" class="btn btn-info" onclick="loadClientes()">Cargar Clientes</button>
+                <button type="button" class="btn btn-info" onclick="loadAviones()">Cargar Aviones</button>
                 <div class="input-group w-50">
-                    <input type="search" id="searchInput" class="form-control" placeholder="Buscar clientes">
-                    <button type="button" class="btn btn-success" onclick="searchCliente()">Buscar</button>
+                    <input type="text" id="searchInput" class="form-control" placeholder="Buscar aviones">
+                    <button type="button" class="btn btn-success" onclick="searchAvion()">Buscar</button>
                 </div>
             </div>
-        
         </form>
+
         <table class="table table-bordered table-striped table-hover mt-4">
             <thead class="table-dark">
                 <tr>
-                    <th>Id</th>
-                    <th>Nombre</th>
-                    <th>Apellido</th>
-                    <th>Email</th>
-                    <th>Telefono</th>
-                    <th>Pasaporte</th>
-                    <th>Direccion</th>
+                    <th>ID</th>
+                    <th>Matrícula</th>
+                    <th>Modelo</th>
+                    <th>Capacidad</th>
+                    <th>Aerolínea</th>
                     <th>Acciones</th>
-                
                 </tr>
             </thead>
-            <tbody id="clientesTbBd">
+            <tbody id="avionesTbBd">
             </tbody>
         </table>
     </div>
 
-
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="../clientes.js"></script>
-    
-
+    <script src="./aviones.js"></script>
 </body>
 
 </html>
